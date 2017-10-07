@@ -1,8 +1,8 @@
 package botHelpers
 
 import (
-	"github.com/saniales/golang-crypto-trading-bot/environment"
-	"github.com/saniales/golang-crypto-trading-bot/exchangeWrappers"
+	"github.com/Alexbrem/golang-crypto-trading-bot/environment"
+	"github.com/Alexbrem/golang-crypto-trading-bot/exchangeWrappers"
 )
 
 //InitExchange initialize a new ExchangeWrapper binded to the specified exchange provided.
@@ -15,7 +15,7 @@ func InitExchange(exchangeConfig environment.ExchangeConfig) exchangeWrappers.Ex
 	case "poloniex":
 		return nil
 	case "yobit":
-		return nil
+		return exchangeWrappers.YobitWrapper(exchangeConfig.PublicKey, exchangeConfig.SecretKey)
 	case "cryptopia":
 		return nil
 	default:
